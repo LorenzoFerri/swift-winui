@@ -513,6 +513,64 @@ public final class CompositionTarget : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.desktopacrylicbackdrop)
+open class DesktopAcrylicBackdrop : WinUI.SystemBackdrop {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IDesktopAcrylicBackdrop
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdrop
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdrop>?) -> DesktopAcrylicBackdrop? {
+        guard let abi = abi else { return nil }
+        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IDesktopAcrylicBackdropFactory : __ABI_Microsoft_UI_Xaml_Media.IDesktopAcrylicBackdropFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Media.DesktopAcrylicBackdrop"))
+
+    override public init() {
+        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IDesktopAcrylicBackdropFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        }
+    }
+
+    internal enum ISystemBackdropOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CISystemBackdropOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.ISystemBackdropOverrides
+        internal typealias Class = DesktopAcrylicBackdrop
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdrop
+            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Media.IDesktopAcrylicBackdrop
+        }
+    }
+    internal typealias Composable = ISystemBackdropOverrides
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.media.doublecollection)
 public final class DoubleCollection : WinRTClass, IVector, IIterable {
     public typealias T = Double

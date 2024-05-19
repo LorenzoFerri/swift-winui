@@ -66,6 +66,14 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CICompositionTargetStatics: 
     .init(Data1: 0x12A4BE6F, Data2: 0x6DB1, Data3: 0x5165, Data4: ( 0xB6,0x22,0xD5,0x7A,0xB7,0x82,0x74,0x5B ))// 12A4BE6F-6DB1-5165-B622-D57AB782745B
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdrop: WindowsFoundation.IID {
+    .init(Data1: 0xBFD9915B, Data2: 0x82A6, Data3: 0x5DF6, Data4: ( 0xAF,0xF0,0xA4,0x82,0x4D,0xDC,0x11,0x43 ))// BFD9915B-82A6-5DF6-AFF0-A4824DDC1143
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdropFactory: WindowsFoundation.IID {
+    .init(Data1: 0x00922E6D, Data2: 0xAE51, Data3: 0x564A, Data4: ( 0xBC,0xE2,0x19,0x73,0xD5,0xE4,0x63,0xDD ))// 00922E6D-AE51-564A-BCE2-1973D5E463DD
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIFontFamily: WindowsFoundation.IID {
     .init(Data1: 0x18FA5BC1, Data2: 0x7294, Data3: 0x527C, Data4: ( 0xBB,0x02,0xB2,0x13,0xE0,0xB3,0xA2,0xA3 ))// 18FA5BC1-7294-527C-BB02-B213E0B3A2A3
 }
@@ -893,6 +901,29 @@ public enum __ABI_Microsoft_UI_Xaml_Media {
                 }
             }
             return .from(abi: result)
+        }
+
+    }
+
+    public class IDesktopAcrylicBackdrop: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdrop }
+
+    }
+
+    public class IDesktopAcrylicBackdropFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdropFactory }
+
+        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.DesktopAcrylicBackdrop.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IDesktopAcrylicBackdrop {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CMedia_CIDesktopAcrylicBackdropFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IDesktopAcrylicBackdrop(value!)
         }
 
     }

@@ -1444,6 +1444,10 @@ fileprivate func makeCompositionTargetFrom(abi: WindowsFoundation.IInspectable) 
     return CompositionTarget(fromAbi: abi)
 }
 
+fileprivate func makeDesktopAcrylicBackdropFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return DesktopAcrylicBackdrop(fromAbi: abi)
+}
+
 fileprivate func makeDoubleCollectionFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return DoubleCollection(fromAbi: abi)
 }
@@ -2366,6 +2370,7 @@ public class __MakeFromAbi: MakeFromAbi {
             case "CacheMode": return makeCacheModeFrom(abi: abi)
             case "CompositeTransform": return makeCompositeTransformFrom(abi: abi)
             case "CompositionTarget": return makeCompositionTargetFrom(abi: abi)
+            case "DesktopAcrylicBackdrop": return makeDesktopAcrylicBackdropFrom(abi: abi)
             case "DoubleCollection": return makeDoubleCollectionFrom(abi: abi)
             case "FontFamily": return makeFontFamilyFrom(abi: abi)
             case "GeneralTransform": return makeGeneralTransformFrom(abi: abi)

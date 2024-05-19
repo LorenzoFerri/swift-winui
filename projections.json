@@ -106,7 +106,8 @@
     "Microsoft.UI.Xaml.Shapes.Rectangle",
     "Microsoft.UI.Xaml.Window",
     "Microsoft.UI.Xaml.XamlTypeInfo.XamlControlsXamlMetaDataProvider",
-    "Microsoft.UI.Xaml.Controls.NavigationView"
+    "Microsoft.UI.Xaml.Controls.NavigationView",
+    "Microsoft.UI.Xaml.Media.DesktopAcrylicBackdrop"
   ],
   "exclude": [
   ]
